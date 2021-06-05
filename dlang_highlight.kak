@@ -7,3 +7,7 @@ add-highlighter global/ regex ///\h*[^\n]* 0:cyan
 # Block comments
 add-highlighter global/ regex (/\*.*?\*/) 0:green
 
+# Block documentation comments
+add-highlighter global/ regex (/\*\*.*?\*/) 0:red
+add-highlighter global/ regex (/\+\+.*?\+/) 0:red
+
