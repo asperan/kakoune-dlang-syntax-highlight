@@ -1,3 +1,6 @@
+# Numbers
+add-highlighter global/ regex -?\d+(\.\d*)? 0:blue
+
 # Inline comment
 add-highlighter global/ regex //\h*[^\n]* 0:yellow
 
