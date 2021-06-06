@@ -29,7 +29,9 @@ define-command -hidden highlight-d-syntax %{
  				add-highlighter -override global/dlang_at_attributes regex \x40\w* 0:$kak_opt_at_attributes_color
 
         # Strings
-        add-highlighter -override global/dlang_strings regex \x22\w*?\x22 0:$kak_opt_string_color
+        add-highlighter -override global/dlang_dquoted_strings regex (r|q)?\x22\w*?\x22(c|w|d)? 0:$kak_opt_string_color
+				add-highlighter -override global/dlang_bquoted_strings regex \x60\w*?\x60(c|w|d)? 0:$kak_opt_string_color
+				add-highlighter -override global/dlang_hex_strings regex x\x22[0-9A-Fa-f]*?\x22(c|w|d)? 0:$kak_opt_string_color
 
         # Inline comment
         add-highlighter -override global/dlang_inline_comments regex //\h*[^\n]* 0:$kak_opt_comment_color
