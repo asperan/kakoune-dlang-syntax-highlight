@@ -24,17 +24,17 @@ define-command -hidden highlight-d-syntax %{
         add-highlighter -override global/ regex (?<!\w)\d+(\.\d*)? 0:$kak_opt_number_color
 
         # Inline comment
-        add-highlighter -override global/ regex //\h*[^\n]* 0:$kak_opt_comment_color
+        add-highlighter -override global/dlang_inline_comments regex //\h*[^\n]* 0:$kak_opt_comment_color
 
         # Inline documentation comments
-        add-highlighter -override global/ regex ///\h*[^\n]* 0:$kak_opt_docs_color
+        add-highlighter -override global/dlang_inline_docs regex ///\h*[^\n]* 0:$kak_opt_docs_color
 
         # Block comments
-        add-highlighter -override global/ regex (/\*.*?\*/) 0:$kak_opt_comment_color
+        add-highlighter -override global/dlang_block_comments regex (/\*.*?\*/) 0:$kak_opt_comment_color
 
         # Block documentation comments
-        add-highlighter -override global/ regex (/\*\*.*?\*/) 0:$kak_opt_docs_color
-        add-highlighter -override global/ regex (/\+\+.*?\+/) 0:$kak_opt_docs_color
+        add-highlighter -override global/dlang_block_star_docs regex (/\*\*.*?\*/) 0:$kak_opt_docs_color
+        add-highlighter -override global/dlang_block_plus_docs regex (/\+\+.*?\+/) 0:$kak_opt_docs_color
       "
     }
   }
