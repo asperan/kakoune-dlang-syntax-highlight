@@ -5,6 +5,7 @@ declare-option str comment_color "rgb:71D939"
 declare-option str docs_color "rgb:68AECF"
 declare-option str string_color "rgb:45B0F6"
 declare-option str at_attributes_color "rgb:45B0F6"
+declare-option str character_color "rgb:45EDF6"
 
 define-command enable-d-syntax -docstring "Enable syntax highlighting for Dlang grammar" %{
   hook -group Dlang-syntax window InsertIdle .* %{ highlight-d-syntax }
@@ -29,9 +30,15 @@ define-command -hidden highlight-d-syntax %{
  				add-highlighter -override global/dlang_at_attributes regex \x40\w* 0:$kak_opt_at_attributes_color
 
         # Strings
-        add-highlighter -override global/dlang_dquoted_strings regex (r|q)?\x22\w*?\x22(c|w|d)? 0:$kak_opt_string_color
-				add-highlighter -override global/dlang_bquoted_strings regex \x60\w*?\x60(c|w|d)? 0:$kak_opt_string_color
+        add-highlighter -override global/dlang_dquoted_strings regex (r|q)?\x22.*?\x22(c|w|d)? 0:$kak_opt_string_color
+				add-highlighter -override global/dlang_bquoted_strings regex \x60.*?\x60(c|w|d)? 0:$kak_opt_string_color
 				add-highlighter -override global/dlang_hex_strings regex x\x22[0-9A-Fa-f]*?\x22(c|w|d)? 0:$kak_opt_string_color
+
+				# Escape sequences
+				add-highlighter -override global/dlang_escape_sequence regex \x5C(\x27|\x22|\x3F|\x5C|[0abfnrtv]|x[0-9A-Fa-f]{2}|[0-7]{1,3}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|\x26\w*?\x3B) 0:$kak_opt_character_color
+
+				# Characters
+				add-highlighter -override global/dlang_character_lit regex \x27.*?\x27 0:$kak_opt_character_color
 
         # Inline comment
         add-highlighter -override global/dlang_inline_comments regex //\h*[^\n]* 0:$kak_opt_comment_color
