@@ -13,5 +13,9 @@ This plugin uses the following options (with the default value):
 * number_color -> rgb:C2A86C
 * comment_color -> rgb:71D939
 * docs_color -> rgb:68AECF
+* string_color -> rgb:45B0F6
+* at_attributes_color -> rgb:45B0F6
+* character_color -> rgb:45EDF6
+* keyword_color -> rgb:C681D1
 
 You can change the colors by simply overwriting the corresponding color (using the same format of the default values).
