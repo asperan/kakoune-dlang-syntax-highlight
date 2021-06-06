@@ -24,7 +24,13 @@ define-command -hidden highlight-d-syntax %{
         add-highlighter -override global/dlang_util_base_t regex \b(size|ptrdiff)_t\b 0:$kak_opt_base_type_color
 
         # Numbers
-        add-highlighter -override global/dlang_numbers regex \b(?<!\w)\d+(\.\d*)?\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_hex_integers regex (?<![\w\.])0[xX](_*[0-9a-fA-F]+_*)+(L|u|U|Lu|LU|uL|UL)?\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_bin_integers regex (?<![\w\.])0[bB](_*[01]+_*)+(L|u|U|Lu|LU|uL|UL)?\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_base_integers regex (?<![\w\.])\d[0-9_]*(L|u|U|Lu|LU|uL|UL)\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_decimal_floating regex (?<![\w\.])(\d(_*[0-9_]+_*)*)?\.\d(_*[0-9_]+_*)*([eE][+-]?\d(_*[0-9_]+_*)*)?([fF]|r)?i?\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_integer_float regex (?<![\w\.])\d(_*[0-9_]+_*)*(\.|([eE][+-]?(_*[0-9_]+_*)+)?(([fF]|r)?i?)?)\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_hex_decimal regex (?<![\w\.])0[xX]\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_number_color
+				add-highlighter -override global/dlang_hex_floating regex (?<![\w\.])0[xX](_*[0-9A-Fa-f]+_*)+(\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*)?[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_number_color
 
         # AtAttributes
  				add-highlighter -override global/dlang_at_attributes regex \x40\w* 0:$kak_opt_at_attributes_color
