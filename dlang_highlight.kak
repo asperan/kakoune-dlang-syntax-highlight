@@ -3,6 +3,8 @@ declare-option str base_type_color "rgb:FFB043"
 declare-option str number_color "rgb:C2A86C"
 declare-option str comment_color "rgb:71D939"
 declare-option str docs_color "rgb:68AECF"
+declare-option str string_color "rgb:45B0F6"
+declare-option str at_attributes_color "rgb:45B0F6"
 
 define-command enable-d-syntax -docstring "Enable syntax highlighting for Dlang grammar" %{
   hook -group Dlang-syntax window InsertIdle .* %{ highlight-d-syntax }
@@ -21,7 +23,7 @@ define-command -hidden highlight-d-syntax %{
         add-highlighter -override global/dlang_util_base_t regex \b(size|ptrdiff)_t\b 0:$kak_opt_base_type_color
 
         # Numbers
-        add-highlighter -override global/ regex (?<!\w)\d+(\.\d*)? 0:$kak_opt_number_color
+        add-highlighter -override global/dlang_numbers regex \b(?<!\w)\d+(\.\d*)?\b 0:$kak_opt_number_color
 
         # Inline comment
         add-highlighter -override global/dlang_inline_comments regex //\h*[^\n]* 0:$kak_opt_comment_color
