@@ -6,6 +6,7 @@ declare-option str docs_color "rgb:68AECF"
 declare-option str string_color "rgb:45B0F6"
 declare-option str at_attributes_color "rgb:45B0F6"
 declare-option str character_color "rgb:45EDF6"
+declare-option str keyword_color "rgb:C681D1"
 
 define-command enable-d-syntax -docstring "Enable syntax highlighting for Dlang grammar" %{
   hook -group Dlang-syntax window InsertIdle .* %{ highlight-d-syntax }
@@ -22,6 +23,9 @@ define-command -hidden highlight-d-syntax %{
         add-highlighter -override global/dlang_char_based_t regex \b[wd]?char\b 0:$kak_opt_base_type_color
         add-highlighter -override global/dlang_floating_base_t regex \b[ic]?(float|double|real)\b 0:$kak_opt_base_type_color
         add-highlighter -override global/dlang_util_base_t regex \b(size|ptrdiff)_t\b 0:$kak_opt_base_type_color
+
+				# Keywords
+				add-highlighter -override global/dlang_keywords regex \b(abstract|alias|align|asm|assert|body|break|case|cast|catch|class|const|continue|debug|default|delegate|delete|deprecated|do|else|enum|export|extern|false|final|finally|for|foreach|foreach_reverse|function|goto|if|immutable|import|in|inout|interface|invariant|is|lazy|macro|mixin|module|new|nothrow|null|out|override|package|pragma|private|protected|public|pure|ref|return|scope|shared|static|struct|super|switch|synchronized|template|this|throw|true|try|typeid|typeof|union|unittest|version|while|with|__FILE__|__FILE_FULL_PATH__|__MODULE__|__LINE__|__FUNCTION__|__PRETTY_FUNCTION__|__gshared|__traits|__vector|__parameters|__DATE__|__EOF__|__TIME__|__TIMESTAMP__|__VENDOR__|__VERSION__)\b 0:$kak_opt_keyword_color
 
         # Numbers
 				add-highlighter -override global/dlang_hex_integers regex (?<![\w\.])0[xX](_*[0-9a-fA-F]+_*)+(L|u|U|Lu|LU|uL|UL)?\b 0:$kak_opt_number_color
