@@ -25,6 +25,9 @@ define-command -hidden highlight-d-syntax %{
         # Numbers
         add-highlighter -override global/dlang_numbers regex \b(?<!\w)\d+(\.\d*)?\b 0:$kak_opt_number_color
 
+        # Strings
+        add-highlighter -override global/dlang_strings regex \x22\w*?\x22 0:$kak_opt_string_color
+
         # Inline comment
         add-highlighter -override global/dlang_inline_comments regex //\h*[^\n]* 0:$kak_opt_comment_color
 
