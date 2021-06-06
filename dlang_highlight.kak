@@ -14,11 +14,11 @@ define-command -hidden highlight-d-syntax %{
     evaluate-commands -no-hooks %sh{
       echo "
         # Base types
-        add-highlighter -override global/bvs_base_t regex (bool|void|string) 0:$kak_opt_base_type_color
-        add-highlighter -override global/int_based_t regex [u]?(byte|short|int|long|cent) 0:$kak_opt_base_type_color
-        add-highlighter -override global/char_based_t regex [wd]?char 0:$kak_opt_base_type_color
-        add-highlighter -override global/floating_base_t regex [ic]?(float|double|real) 0:$kak_opt_base_type_color
-        add-highlighter -override global/util_base_t regex (size|ptrdiff)_t 0:$kak_opt_base_type_color
+        add-highlighter -override global/dlang_bvsa_base_t regex \b(bool|void|string|auto)\b 0:$kak_opt_base_type_color
+        add-highlighter -override global/dlang_int_based_t regex \b[u]?(byte|short|int|long|cent)\b 0:$kak_opt_base_type_color
+        add-highlighter -override global/dlang_char_based_t regex \b[wd]?char\b 0:$kak_opt_base_type_color
+        add-highlighter -override global/dlang_floating_base_t regex \b[ic]?(float|double|real)\b 0:$kak_opt_base_type_color
+        add-highlighter -override global/dlang_util_base_t regex \b(size|ptrdiff)_t\b 0:$kak_opt_base_type_color
 
         # Numbers
         add-highlighter -override global/ regex (?<!\w)\d+(\.\d*)? 0:$kak_opt_number_color
