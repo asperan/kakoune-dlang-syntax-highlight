@@ -18,5 +18,6 @@ This plugin uses the following options (with the default value):
 * character_color -> rgb:45EDF6
 * keyword_color -> rgb:C681D1
 * operator_color -> rgb:C681D1
+* class_name_color -> rgb:91ED6A
 
 You can change the colors by simply overwriting the corresponding color (using the same format of the default values).

@@ -8,6 +8,7 @@ declare-option str at_attributes_color "rgb:45B0F6"
 declare-option str character_color "rgb:45EDF6"
 declare-option str keyword_color "rgb:C681D1"
 declare-option str operator_color "rgb:C681D1"
+declare-option str class_name_color "rgb:91ED6A"
 
 define-command enable-d-syntax -docstring "Enable syntax highlighting for Dlang grammar" %{
   highlight-d-syntax
@@ -46,6 +47,9 @@ define-command -hidden highlight-d-syntax %{
 				add-highlighter -override global/dlang/integer_float regex (?<![\w\.])\d(_*[0-9_]+_*)*(\.|([eE][+-]?(_*[0-9_]+_*)+)?(([fF]|r)?i?)?)\b 0:$kak_opt_number_color
 				add-highlighter -override global/dlang/hex_decimal regex (?<![\w\.])0[xX]\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_number_color
 				add-highlighter -override global/dlang/hex_floating regex (?<![\w\.])0[xX](_*[0-9A-Fa-f]+_*)+(\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*)?[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_number_color
+
+				# Class names
+				add-highlighter -override global/dlang/class_name regex \b[A-Z][A-Za-z0-9_]*\b 0:$kak_opt_class_name_color
 
         # AtAttributes
  				add-highlighter -override global/dlang/at_attributes regex \x40\w* 0:$kak_opt_at_attributes_color
