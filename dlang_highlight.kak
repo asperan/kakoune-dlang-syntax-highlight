@@ -7,6 +7,7 @@ declare-option str string_color "rgb:45B0F6"
 declare-option str at_attributes_color "rgb:45B0F6"
 declare-option str character_color "rgb:45EDF6"
 declare-option str keyword_color "rgb:C681D1"
+declare-option str operator_color "rgb:C681D1"
 
 define-command enable-d-syntax -docstring "Enable syntax highlighting for Dlang grammar" %{
   highlight-d-syntax
@@ -48,6 +49,9 @@ define-command -hidden highlight-d-syntax %{
 
         # AtAttributes
  				add-highlighter -override global/dlang/at_attributes regex \x40\w* 0:$kak_opt_at_attributes_color
+
+				# Operators
+				add-highlighter -override global/dlang/operators regex (\+[\+=]?|-[-=]?|&[&=]?|\|[\|=]?|((\^\^?)|/|\*|%|~|<<|>>|>>>|=|!|<|>)=?|(?<=\))\s?=>|\.\.|\?|:) 0:$kak_opt_operator_color
 
         # Strings
         add-highlighter -override global/dlang/dquoted_strings regex (r|q)?\x22.*?\x22(c|w|d)? 0:$kak_opt_string_color
