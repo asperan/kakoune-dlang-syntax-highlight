@@ -1,0 +1,11 @@
+# Default theme
+set-option global dlang_syntax_base_type_color "rgb:FFB043"
+set-option global dlang_syntax_number_color "rgb:C2A86C"
+set-option global dlang_syntax_comment_color "rgb:71D939"
+set-option global dlang_syntax_docs_color "rgb:68AECF"
+set-option global dlang_syntax_string_color "rgb:45B0F6"
+set-option global dlang_syntax_at_attributes_color "rgb:45B0F6"
+set-option global dlang_syntax_character_color "rgb:45EDF6"
+set-option global dlang_syntax_keyword_color "rgb:C681D1"
+set-option global dlang_syntax_operator_color "rgb:C681D1"
+set-option global dlang_syntax_class_name_color "rgb:91ED6A"
