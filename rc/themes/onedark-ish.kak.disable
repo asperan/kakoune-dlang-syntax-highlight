@@ -1,0 +1,12 @@
+# Some color codes taken from https://github.com/joshdick/onedark.vim
+
+set-option global dlang_syntax_base_type_color "rgb:E792DD"
+set-option global dlang_syntax_number_color "rgb:E5C07B"
+set-option global dlang_syntax_comment_color "rgb:ABB2BF"
+set-option global dlang_syntax_docs_color "rgb:56B6C2"
+set-option global dlang_syntax_string_color "rgb:E5C07B"
+set-option global dlang_syntax_at_attributes_color "rgb:61AFEF"
+set-option global dlang_syntax_character_color "rgb:F6D1A2"
+set-option global dlang_syntax_keyword_color "rgb:C678DD"
+set-option global dlang_syntax_operator_color "rgb:7FCFEB"
+set-option global dlang_syntax_class_name_color "rgb:98C379"

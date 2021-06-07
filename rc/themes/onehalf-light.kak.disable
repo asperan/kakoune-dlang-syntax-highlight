@@ -1,0 +1,11 @@
+# Some color code taken from https://github.com/sonph/onehalf
+set-option global dlang_syntax_base_type_color "rgb:50A14F"
+set-option global dlang_syntax_number_color "rgb:BFCEFF"
+set-option global dlang_syntax_comment_color "rgb:D4D4D4"
+set-option global dlang_syntax_docs_color "rgb:A4A4A4"
+set-option global dlang_syntax_string_color "rgb:0184BC"
+set-option global dlang_syntax_at_attributes_color "rgb:E45649"
+set-option global dlang_syntax_character_color "rgb:0997B3"
+set-option global dlang_syntax_keyword_color "rgb:FF98BE"
+set-option global dlang_syntax_operator_color "rgb:A626A4"
+set-option global dlang_syntax_class_name_color "rgb:C18401"
