@@ -39,6 +39,9 @@ define-command -hidden highlight-d-syntax %{
 				# Keywords
 				add-highlighter -override global/dlang/keywords regex \b(abstract|alias|align|asm|assert|body|break|case|cast|catch|class|const|continue|debug|default|delegate|delete|deprecated|do|else|enum|export|extern|false|final|finally|for|foreach|foreach_reverse|function|goto|if|immutable|import|in|inout|interface|invariant|is|lazy|macro|mixin|module|new|nothrow|null|out|override|package|pragma|private|protected|public|pure|ref|return|scope|shared|static|struct|super|switch|synchronized|template|this|throw|true|try|typeid|typeof|union|unittest|version|while|with|__FILE__|__FILE_FULL_PATH__|__MODULE__|__LINE__|__FUNCTION__|__PRETTY_FUNCTION__|__gshared|__traits|__vector|__parameters|__DATE__|__EOF__|__TIME__|__TIMESTAMP__|__VENDOR__|__VERSION__)\b 0:$kak_opt_dlang_syntax_keyword_color
 
+        # Class names
+				add-highlighter -override global/dlang/class_name regex \b[A-Z][A-Za-z0-9_]*\b 0:$kak_opt_dlang_syntax_class_name_color
+
         # Numbers
 				add-highlighter -override global/dlang/hex_integers regex (?<![\w\.])0[xX](_*[0-9a-fA-F]+_*)+(L|u|U|Lu|LU|uL|UL)?\b 0:$kak_opt_dlang_syntax_number_color
 				add-highlighter -override global/dlang/bin_integers regex (?<![\w\.])0[bB](_*[01]+_*)+(L|u|U|Lu|LU|uL|UL)?\b 0:$kak_opt_dlang_syntax_number_color
@@ -47,9 +50,6 @@ define-command -hidden highlight-d-syntax %{
 				add-highlighter -override global/dlang/integer_float regex (?<![\w\.])\d(_*[0-9_]+_*)*(\.|([eE][+-]?(_*[0-9_]+_*)+)?(([fF]|r)?i?)?)\b 0:$kak_opt_dlang_syntax_number_color
 				add-highlighter -override global/dlang/hex_decimal regex (?<![\w\.])0[xX]\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_dlang_syntax_number_color
 				add-highlighter -override global/dlang/hex_floating regex (?<![\w\.])0[xX](_*[0-9A-Fa-f]+_*)+(\.[0-9A-Fa-f](_*[0-9A-Fa-f]+_*)*)?[pP][+-]?(_*[0-9_]+_*)+\b 0:$kak_opt_dlang_syntax_number_color
-
-				# Class names
-				add-highlighter -override global/dlang/class_name regex \b[A-Z][A-Za-z0-9_]*\b 0:$kak_opt_dlang_syntax_class_name_color
 
         # AtAttributes
  				add-highlighter -override global/dlang/at_attributes regex \x40\w* 0:$kak_opt_dlang_syntax_at_attributes_color
