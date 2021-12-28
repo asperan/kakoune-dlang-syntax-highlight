@@ -1,3 +1,5 @@
+# Syntax highlight
+
 # Default colors for syntax highlight
 set-face global dlang_syntax_base_type_color rgb:E5389A
 set-face global dlang_syntax_keyword_color rgb:C681D1
@@ -9,10 +11,6 @@ set-face global dlang_syntax_at_attributes_color rgb:E080B7
 set-face global dlang_syntax_character_color rgb:EDB4D4
 set-face global dlang_syntax_operator_color rgb:DEDED9
 set-face global dlang_syntax_class_name_color rgb:D1C849
-
-hook global BufCreate .*\.d %{
-  set-option buffer filetype dlang
-}
 
 hook -group dlang-highlight global WinSetOption filetype=dlang %{
   require-module dlang-syntax-highlight
